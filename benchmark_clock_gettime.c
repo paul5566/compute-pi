@@ -58,8 +58,31 @@ int main(int argc, char const *argv[])
         compute_pi_avx_unroll(N);
     }
     clock_gettime(CLOCK_ID, &end);
+    printf("%lf,", (double) (end.tv_sec - start.tv_sec) +
+           (end.tv_nsec - start.tv_nsec)/ONE_SEC);
+    //leibniz
+    clock_gettime(CLOCK_ID, &start);
+    for(i = 0; i < loop; i++) {
+        compute_pi_leibniz(N);
+    }
+    clock_gettime(CLOCK_ID, &end);
+    printf("%lf,", (double) (end.tv_sec - start.tv_sec) +
+           (end.tv_nsec - start.tv_nsec)/ONE_SEC);
+    //machin
+    clock_gettime(CLOCK_ID, &start);
+    for(i = 0; i < loop; i++) {
+        machi = machin_pi(N);
+    }
+    clock_gettime(CLOCK_ID, &end);
+    printf("%lf,", (double) (end.tv_sec - start.tv_sec) +
+           (end.tv_nsec - start.tv_nsec)/ONE_SEC);
+    //montecarlo
+    clock_gettime(CLOCK_ID, &start);
+    for(i = 0; i < loop; i++) {
+        monte_carlo_pi(N);
+    }
+    clock_gettime(CLOCK_ID, &end);
     printf("%lf\n", (double) (end.tv_sec - start.tv_sec) +
            (end.tv_nsec - start.tv_nsec)/ONE_SEC);
-
     return 0;
 }

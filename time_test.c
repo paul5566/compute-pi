@@ -25,6 +25,20 @@ int main(int argc, char const *argv[])
 #if defined(AVXUNROLL)
     pi = compute_pi_avx_unroll(N);
 #endif
+//LEIBNIZ
+#if defined(LEIBNIZ)
+    pi = compute_pi_leibniz(N);
+#endif
+//Machin
+#if defined(MACHIN)
+    pi = machin_pi(N);
+#endif
+//montecarlo
+#if defined(MONTE_CARLO)
+    pi = monte_carlo_pi(N);
+#endif
+
+
     printf("N = %d , pi = %lf\n", N, pi);
 
     return 0;
