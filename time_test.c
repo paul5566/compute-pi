@@ -30,9 +30,11 @@ int main(int argc, char const *argv[])
     pi = compute_pi_leibniz(N);
 #endif
 //Machin
-#if defined(MACHIN)
-    pi = machin_pi(N);
-#endif
+    /*
+    #if defined(MACHIN)
+        pi = machin_pi(N);
+    #endif
+    */
 //montecarlo
 #if defined(MONTE_CARLO)
     pi = monte_carlo_pi(N);

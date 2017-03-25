@@ -1,4 +1,7 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <time.h>
 #include <immintrin.h>
 #include <omp.h>
 #include "computepi.h"
@@ -128,10 +131,12 @@ double compute_pi_leibniz(size_t N)
     return pi * 4.0;
 }
 //machin
+/*
 double machin_pi(size_t N)
 {
     return (16*atan(1.0/5.0) - 4 * atan(1.0/239.0));
 }
+*/
 //montecarlo
 double monte_carlo_pi(size_t N)
 {
@@ -149,4 +154,5 @@ double monte_carlo_pi(size_t N)
     }
     return (4.0 * (double)(in_times)/(double)(N));
 }
+
 
